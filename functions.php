@@ -178,3 +178,51 @@ add_action('wp_ajax_nopriv_apply_coupon_code', 'cb_apply_coupon_code');
 
 
 
+/**
+ * Change Proceed To Checkout Text in WooCommerce
+ * Place this in your Functions.php file
+ **/
+function woocommerce_button_proceed_to_checkout() {
+	$checkout_url = WC()->cart->get_checkout_url();
+	?>
+	<a href="<?php echo $checkout_url; ?>" class="checkout-button button alt wc-forward"><?php _e( 'CHECKOUT NOW', 'woocommerce' ); ?></a>
+	<?php
+}
+add_filter( 'woocommerce_order_button_text', 'woo_custom_order_button_text' );
+
+function woo_custom_order_button_text() {
+
+	return __( 'PURCHASE', 'woocommerce' );
+}
+
+//override checkout field by custom text and order
+add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+
+function custom_override_checkout_fields( $fields ) {
+    $fields['billing']['billing_first_name']['placeholder'] = 'First Name*';
+	$fields['billing']['billing_last_name']['placeholder'] = 'Last Name*';
+    $fields['billing']['billing_company']['placeholder'] = 'Company Name';
+    $fields['billing']['billing_email']['placeholder'] = 'Email Address';
+    $fields['billing']['billing_country']['placeholder'] = 'Country';
+    $fields['billing']['billing_city']['placeholder'] = 'Town / City *';
+    unset($fields['billing']['billing_phone']);
+    unset($fields['billing']['billing_state']);
+    unset($fields['billing']['billing_postcode']);
+
+    //this loop remove all the label at once
+    foreach ($fields as $category => $value) {
+        // loop by fields
+        foreach ($fields[$category] as $field => $property) {
+            // remove label property
+            unset($fields[$category][$field]['label']);
+        }
+    }
+    return $fields;
+}
+
+//Remove additional information from checkout
+//add_filter('woocommerce_enable_order_notes_field', '__return_false');
+
+//remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
+
+//add_action( 'woocommerce_after_checkout_form', 'woocommerce_checkout_coupon_form');
