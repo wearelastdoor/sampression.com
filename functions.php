@@ -1,12 +1,32 @@
 <?php
 
-//add_filter ('woocommerce_add_to_cart_redirect', 'redirect_to_checkout');
+// define the woocommerce_get_price_html callback 
+function filter_woocommerce_get_price_html( $wc, $cart_item, $cart_item_key ) {
+	// echo '<pre>';
+	// print_r($cart_item);
+	// echo '</pre>';
+	$amt = (int)$cart_item['data']->subscription_price + (int)$cart_item['data']->subscription_sign_up_fee;
+    return '$ '.number_format($amt, 2);
+}
+         
+// add the filter 
+add_filter( 'woocommerce_cart_item_price', 'filter_woocommerce_get_price_html', 10, 3 ); 
+add_filter( 'woocommerce_cart_item_subtotal', 'filter_woocommerce_get_price_html', 10, 3 ); 
+
+function custom_add_to_cart_message( $message, $product_id ) {
+    $_pf = new WC_Product_Factory();
+	$_product = $_pf->get_product( $product_id );
+    $message = '"' . $_product->post->post_title . '" has been added to your cart.';
+    return $message;
+}
+add_filter( 'wc_add_to_cart_message', 'custom_add_to_cart_message', 10, 2 );
 
 function redirect_to_checkout() {
     global $woocommerce;
     $checkout_url = $woocommerce->cart->get_checkout_url();
     return $checkout_url;
 }
+//add_filter ('woocommerce_add_to_cart_redirect', 'redirect_to_checkout');
 
 function sampression_split_more_content() {
     global $post;
@@ -155,12 +175,6 @@ function cb_apply_coupon_code() {
 add_action('wp_ajax_apply_coupon_code', 'cb_apply_coupon_code');
 add_action('wp_ajax_nopriv_apply_coupon_code', 'cb_apply_coupon_code');
 
-/*
-<div class="col-md-3">
-						<img class="ico" src="uploads/Design.png" alt="Design">
-						<h4>Design</h4>
-						<p>Every one of our themes are created with great attention to detail.</p>
-					</div>
- */
+
 
 

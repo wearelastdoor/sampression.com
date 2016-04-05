@@ -1,10 +1,15 @@
 <?php
 $id = get_post_meta( get_the_ID(), 'wpcf-woo-product-id', true );
 $_pf = new WC_Product_Factory();
-$_product = $_pf->get_product($id);
+$_product = $_pf->get_product($id); //print_r($_product);
 ?>
 <div class="col-md-7">
-    <h1 id="product-price-info"><?php echo $_product->post->post_title; ?> - <?php echo $_product->get_price_html(); ?></h1>
+    <h1 id="product-price-info"><?php echo $_product->post->post_title; ?> -
+        <?php
+        //echo apply_filters( 'woocommerce_get_price_html', $price, $instance );
+        echo $_product->get_price_html();
+        ?>
+    </h1>
     <?php if( get_post_meta( $_product->id, 'wpcf-theme-tagline', true ) ) { ?>
     <h3 class="sub-title"><?php echo get_post_meta($_product->id, 'wpcf-theme-tagline', true); ?></h3>
     <?php } ?>
