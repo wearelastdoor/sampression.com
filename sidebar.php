@@ -1,4 +1,5 @@
 <?php
+/*
 $id = get_post_meta( get_the_ID(), 'wpcf-woo-product-id', true );
 $_pf = new WC_Product_Factory();
 $_product = $_pf->get_product($id); //print_r($_product);
@@ -29,9 +30,8 @@ $_product = $_pf->get_product($id); //print_r($_product);
         </form>
     </div> <!-- .main-actions -->
 </div><!-- .col-md-5 -->
-<pre>
 <?php
-
+*/
 // echo apply_filters( 'woocommerce_loop_add_to_cart_link',
 //     sprintf( '<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" class="button %s product_type_%s">%s</a>',
 //         esc_url( $_product->add_to_cart_url() ),
@@ -49,4 +49,3 @@ $_product = $_pf->get_product($id); //print_r($_product);
 // $woocommerce->cart->add_discount('sampro');
 // print_r($woocommerce->cart->get_cart());
 ?>
-</pre>

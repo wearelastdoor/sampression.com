@@ -45,14 +45,6 @@ jQuery(document).ready(function($) {
         height      : '100%',
         openMethod  : 'dropIn',
         closeMethod : 'dropOut'
-        /*openMethod  : 'drop_In',
-        openSpeed   : '250',
-        closeMethod : 'drop_Out',
-        closeSpeed : '100'*/
-        // openEffect  : 'elastic',
-        // closeEffect : 'elastic',
-        // openEasing  : 'easeInBack',
-        // closeEasing : 'easeInOutBounce'
     });
 
     $(document).on('click', '#enter-coupon-code', function (e) {
@@ -81,7 +73,6 @@ jQuery(document).ready(function($) {
             };
             $.post(SampressionVar.ajaxurl, data, function (response) {
                 console.log( response );
-                //$('#product-price-info span.amount').text('$ '+response);
             });
             return false;
         }
@@ -96,11 +87,11 @@ jQuery(document).ready(function($) {
     *
     */
     if($.cookie("sampression-cookie-notice") == null) {
-        var div = '<div class="cookie-notice">This site uses cookies to optimise your user experience. By using this site you are consenting to our use of these cookies.<a href="javascript:void(0);">Close</a></div>';
+        var div = '<div class="cookie-notice">This site uses cookies to optimise your user experience. By using this site you are consenting to our use of these cookies.<a class="got-it" href="javascript:void(0);">Got it</a> <a href="#">Learn More</a></div>';
         $('body').prepend(div);
     }
 
-    $(document).on('click', '.cookie-notice a', function() {
+    $(document).on('click', '.cookie-notice a.got-it', function() {
         $('div.cookie-notice').slideUp("slow", function() {
             $(this).remove();
         });

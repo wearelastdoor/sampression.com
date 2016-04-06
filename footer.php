@@ -1,3 +1,15 @@
+		<div class="subscription-block inverse">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h4>Claim your 30% Discount Today</h4>
+						<?php echo do_shortcode( '[gravityform id="4" title="false" description="false" ajax="true" tabindex="101"]' ); ?>
+					</div><!-- .col-md-12 -->
+				</div><!-- .row -->
+			</div><!-- .container -->
+		</div><!-- .subscription-block -->
+	</main><!-- #main -->
+</div><!-- #content -->
 <footer id="colophon" class="site-footer">
 	<div class="container">
 		<div class="row">

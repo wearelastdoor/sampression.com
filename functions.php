@@ -1,10 +1,59 @@
 <?php
 
+remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
+
+//add_action( 'woocommerce_after_checkout_form', 'woocommerce_checkout_coupon_form' );
+
+function skyverge_show_coupon() {
+	//echo '<p style="padding: 0 15px;"> Have a coupon? <a href="#" id="show-coupon-form">Click here to enter your code</a>.</p>';
+	if ( ! WC()->cart->applied_coupons ) {
+    $info_message = apply_filters( 'woocommerce_checkout_coupon_message', __( 'Have a coupon?', 'woocommerce' ) . ' <a href="#" class="showcoupon">' . __( 'Click here to enter your code', 'woocommerce' ) . '</a>' );
+    wc_print_notice( $info_message, 'notice' );
+}
+?>
+
+<form class="checkout_coupon" method="post" style="display:none">
+
+	<p class="form-row form-row-first">
+		<input type="text" name="coupon_code" class="input-text" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" id="coupon_code" value="" />
+	</p>
+
+	<p class="form-row form-row-last">
+		<input type="submit" class="button" name="apply_coupon" value="<?php esc_attr_e( 'Apply Coupon', 'woocommerce' ); ?>" />
+	</p>
+
+	<div class="clear"></div>
+</form><?php
+}
+add_action( 'woocommerce_review_order_before_payment', 'skyverge_show_coupon' );
+
+// function skyverge_show_coupon_js() {
+// 	wc_enqueue_js( '
+// 		$( "a.showcoupon" ).parent().hide();
+		
+// 		$( "body" ).bind( "updated_checkout", function() {
+// 			$( "#show-coupon-form" ).click( function() {
+// 				$( ".checkout_coupon" ).show();
+// 				$( "html, body" ).animate( { scrollTop: 0 }, "slow" );
+//   				return false;
+// 			} );
+// 		} );
+// 	');
+// }
+// add_action( 'woocommerce_before_checkout_form', 'skyverge_show_coupon_js' );
+
+/**
+ * Display status of the Toolbar to off
+ */
+add_filter( 'show_admin_bar', '__return_false' );
+
+/**
+ * Removing additional notes field in checkout page
+ */
+add_filter('woocommerce_enable_order_notes_field', '__return_false');
+
 // define the woocommerce_get_price_html callback 
 function filter_woocommerce_get_price_html( $wc, $cart_item, $cart_item_key ) {
-	// echo '<pre>';
-	// print_r($cart_item);
-	// echo '</pre>';
 	$amt = (int)$cart_item['data']->subscription_price + (int)$cart_item['data']->subscription_sign_up_fee;
     return '$ '.number_format($amt, 2);
 }
@@ -16,7 +65,7 @@ add_filter( 'woocommerce_cart_item_subtotal', 'filter_woocommerce_get_price_html
 function custom_add_to_cart_message( $message, $product_id ) {
     $_pf = new WC_Product_Factory();
 	$_product = $_pf->get_product( $product_id );
-    $message = '"' . $_product->post->post_title . '" has been added to your cart.';
+    $message = '"' . $_product->post->post_title . '" has been added to your cart - superb choice!';
     return $message;
 }
 add_filter( 'wc_add_to_cart_message', 'custom_add_to_cart_message', 10, 2 );
@@ -26,7 +75,7 @@ function redirect_to_checkout() {
     $checkout_url = $woocommerce->cart->get_checkout_url();
     return $checkout_url;
 }
-//add_filter ('woocommerce_add_to_cart_redirect', 'redirect_to_checkout');
+add_filter ('woocommerce_add_to_cart_redirect', 'redirect_to_checkout');
 
 function sampression_split_more_content() {
     global $post;
