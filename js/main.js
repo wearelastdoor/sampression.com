@@ -90,7 +90,6 @@ jQuery(document).ready(function($) {
         var div = '<div class="cookie-notice">This site uses cookies to optimise your user experience. By using this site you are consenting to our use of these cookies.<a class="got-it" href="javascript:void(0);">Got it</a> <a href="#">Learn More</a></div>';
         $('body').prepend(div);
     }
-
     $(document).on('click', '.cookie-notice a.got-it', function() {
         $('div.cookie-notice').slideUp("slow", function() {
             $(this).remove();
