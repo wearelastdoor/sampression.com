@@ -33,6 +33,20 @@ jQuery(document).ready(function($) {
         }
     });*/
 
+    $(document).on('click', '.woocommerce-billing-fields .woocommerce-info .showlogin', function (e) {
+        e.preventDefault();
+        $('.wc-checkout-login-form > p, .wc-checkout-login-form > p').not('.wc-social-login.form-row-wide').show();
+        $('.wc-social-login.form-row-wide').hide();
+        $('.wc-checkout-login-form').toggle('slow');
+    });
+
+    $(document).on('click', '.woocommerce-billing-fields .woocommerce-info .js-show-social-login', function (e) {
+        e.preventDefault();
+        $('.wc-social-login.form-row-wide').show();
+        $('.wc-checkout-login-form > p, .wc-checkout-login-form > p').not('.wc-social-login.form-row-wide').hide();
+        $('.wc-checkout-login-form').toggle('slow');
+    });
+
     if( ('#gform_4').length > 0 ) {
         $('#gform_4 .gform_footer').append('<span class="spam-note">We hate spam, as much as you do.</span>');
     }

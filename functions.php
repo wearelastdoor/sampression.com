@@ -1,5 +1,15 @@
 <?php
 
+function sampression_woocommerce_checkout_before_order_review() {
+	echo '<div class="woo-order-review"><h3 id="order_review_heading">Your order</h3>';
+}
+add_action( 'woocommerce_checkout_before_order_review', 'sampression_woocommerce_checkout_before_order_review' );
+
+function sampression_woocommerce_checkout_after_order_review() {
+	echo '</div>';
+}
+add_action( 'woocommerce_checkout_after_order_review', 'sampression_woocommerce_checkout_after_order_review' );
+
 remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
 
 //add_action( 'woocommerce_after_checkout_form', 'woocommerce_checkout_coupon_form' );
