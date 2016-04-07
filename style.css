@@ -1147,10 +1147,78 @@ figure.bottom {
 .page-description {
     margin-bottom: 70px;
 }
+.mrgn-top .feature-brief {
+    margin-top: 50px;
+}
 
-/**
- * Added by Prayas
- */
+.large-text {
+    font-size: 40px;
+    font-weight: 100;
+}
+
+.dummy-height {
+    height: 250px;
+}
+
+.comprasion-feature-block {
+    background: #fbfbfb;
+    padding: 90px 0;
+}
+
+.comprasion-feature-block .theme-feature-section {
+    padding: 0;
+}
+
+.compare-link {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+#getFixed {
+    width: 100%;
+    background: #fff;
+
+}
+
+.compare-title {
+    font-size: 22px;
+    font-weight: 100;
+    text-align: right;
+    border-left: none !important;
+    padding-right: 30px !important;
+}
+
+.compare-lite {
+    font-size: 16px;
+    font-weight: 600;
+    background-color: rgba(255, 102, 0, 0.05);
+    border-top: 1px solid #dddddd !important;
+    border-left: 1px solid #dddddd !important;
+    border-right: 1px solid rgba(87, 185, 74, 0.5) !important;
+
+}
+
+.compare-pro {
+    font-size: 16px;
+    font-weight: 600;
+    background-color: rgba(255, 102, 0, 0.1);
+    border-top: 1px solid #dddddd !important;
+    border-right: 1px solid #dddddd !important;
+}
+
+.table tr td:first-child {
+    text-align: right;
+    font-weight: 500;
+    padding-right: 30px;
+}
+
+.table tr td:nth-child(2) {
+    border-right: 1px solid rgba(87, 185, 74, 0.5) !important;
+}
+
 #theme-features .widget-title {
     display: none;
 }
