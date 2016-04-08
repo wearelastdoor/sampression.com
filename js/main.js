@@ -118,11 +118,50 @@ jQuery(document).ready(function ($) {
     // jQuery(this).parent('.coupon-trigger').siblings(".coupon-form").animate({"height": "toggle"});
     //});
 
-
+    /*signin form open and close*/
     $('.open-overlay').on('click', function () {
         $('.overlay').toggle();
     });
     $('.overlay-close').on('click', function () {
         $('.overlay').hide();
     })
+
+    /*theme single comparison boc fixed to top and animate while referring to the comparison chart
+    * ========================================================*/
+    function fixDiv() {
+        var $cache = $('#getFixed');
+        if ($(window).scrollTop() > 250) {
+            $cache.css({
+                'position': 'fixed',
+                'top': '0px',
+                'z-index': 2,
+                'padding': '20px 0'
+            });
+            $('.min-height').css({
+                'height': '175px'
+            })
+
+        }
+        else {
+            $cache.css({
+                'position': 'relative',
+                'top': 'auto'
+            });
+            $('.min-height').css({
+                'height': 'auto'
+            })
+        }
+    }
+
+    $(window).scroll(fixDiv);
+    fixDiv();
+
+    $('a.compare-link').click(function () {
+        $('html, body').animate({
+            scrollTop: $($.attr(this, 'href')).offset().top
+        }, 999);
+        return false;
+    });
+
+    $('.woocommerce').addClass('clearfix');
 }); //end ready        ganeshhimal!@12            g0t00h3ll

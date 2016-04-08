@@ -40,7 +40,13 @@
 <div id="signin-signup" class="overlay">
    <span class="overlay-close">x</span>
     <div class="overlay-dialog  overlay-dialog-confirm">
+        <a class="logo" href="<?php bloginfo( 'wpurl' ); ?>" rel="home">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" />
+        </a>
         <?php echo do_shortcode('[woocommerce_social_login_buttons return_url="' . get_bloginfo('wpurl') . '/my-account"]'); ?>
+        <a href="" class="email-signup">Login or sign up with email</a>
+        <p class="privacy-policy">We’ll never post to Twitter or Facebook without your permission. For more info, please see
+            <a href="/privacy">Our Privacy Policy.</a></p>
     </div>
 </div>
 <?php wp_footer(); ?>

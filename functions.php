@@ -283,7 +283,17 @@ function woo_custom_order_button_text() {
 
 	return __( 'PURCHASE', 'woocommerce' );
 }
-
+/* Change the "Proceed to PayPal" button text in the WooCommerce checkout screen
+ */
+add_filter( 'gettext', 'custom_paypal_button_text', 20, 3 );
+function custom_paypal_button_text( $translated_text, $text, $domain ) {
+	switch ( $translated_text ) {
+		case 'Proceed to PayPal' :
+			$translated_text = __( 'PURCHASE', 'woocommerce' );
+			break;
+	}
+	return $translated_text;
+}
 //override checkout field by custom text and order
 add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
 

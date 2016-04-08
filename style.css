@@ -1128,8 +1128,8 @@ figure.bottom {
 }
 
 .theme-demo {
-    background: #FBFBFB;
-    max-height: 520px;
+    background: #FBFBFB;/*
+    max-height: 520px;*/
     margin-bottom: 165px;
 }
 
@@ -1253,6 +1253,80 @@ figure.bottom {
 table.cart .product-quantity, table.cart .product-thumbnail {
     display: none;
 }
+.site-description h3{
+    color: #6f6f6f;
+}
+.mrgn-top .feature-brief {
+    margin-top: 50px;
+}
+
+.large-text {
+    font-size: 40px;
+    font-weight: 100;
+}
+
+.dummy-height {
+    height: 250px;
+}
+
+.comprasion-feature-block {
+    background: #fbfbfb;
+    padding: 90px 0;
+}
+
+.comprasion-feature-block .theme-feature-section {
+    padding: 0;
+}
+
+.compare-link {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+#getFixed {
+    width: 100%;
+    background: #fff;
+
+}
+
+.compare-title {
+    font-size: 22px;
+    font-weight: 100;
+    text-align: right;
+    border-left: none !important;
+    padding-right: 30px !important;
+}
+
+.compare-lite {
+    font-size: 16px;
+    font-weight: 600;
+    background-color: rgba(255, 102, 0, 0.05);
+    border-top: 1px solid #dddddd !important;
+    border-left: 1px solid #dddddd !important;
+    border-right: 1px solid rgba(87, 185, 74, 0.5) !important;
+
+}
+
+.compare-pro {
+    font-size: 16px;
+    font-weight: 600;
+    background-color: rgba(255, 102, 0, 0.1);
+    border-top: 1px solid #dddddd !important;
+    border-right: 1px solid #dddddd !important;
+}
+
+.table tr td:first-child {
+    text-align: right;
+    font-weight: 500;
+    padding-right: 30px;
+}
+
+.table tr td:nth-child(2) {
+    border-right: 1px solid rgba(87, 185, 74, 0.5) !important;
+}
 
 /*overlay container position set to fixed, so we can have the full page overlay with white background, covering the whole screen*/
 
@@ -1267,6 +1341,7 @@ table.cart .product-quantity, table.cart .product-thumbnail {
     z-index: 900;
     background-color: #fff;
     display: none;
+    background-color: rgba(255,255,255,.97);
 }
 
 .overlay:before {
@@ -1343,7 +1418,137 @@ table.cart .product-quantity, table.cart .product-thumbnail {
         transform: scale(1) rotateX(0)
     }
 }
+/*woocommerce styling*/
+a.button-social-login.button-social-login-google,
+.widget-area a.button-social-login.button-social-login-google,
+.social-badge.social-badge-google {
+    background: #509af6 !important;
+}
 
+a.button-social-login.button-social-login-facebook,
+.widget-area a.button-social-login.button-social-login-facebook,
+.social-badge.social-badge-facebook {
+    background: #3c5a96 !important;
+}
+
+a.button-social-login.button-social-login-twitter,
+.widget-area a.button-social-login.button-social-login-twitter,
+.social-badge.social-badge-twitter {
+    background: #2aa9e0 !important;
+}
+
+.button-social-login, a.button-social-login, input.button-social-login, button.button-social-login, .widget-area a.button-social-login {
+    font-family: 'Open Sans', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    color: #ffffff !important;
+    padding: 8px 0 !important;
+    border-radius: 4px !important;
+    width: 208px;
+    display: block !important;
+    margin: 0 auto !important;
+    margin-top: 10px !important;
+    text-align: left;
+    padding-left: 20px !important;
+    text-shadow: none !important;
+}
+.button-social-login .si, a.button-social-login .si, input.button-social-login .si, button.button-social-login .si, .widget-area a.button-social-login .si{
+    border:none !important;
+}
+.overlay-dialog .logo{
+    margin-bottom: 50px;
+    display: block;
+}
+.privacy-policy,.privacy-policy a {
+    font-size: 14px;
+    line-height: 1.4;
+    color: rgba(111, 111, 111, 0.5);
+    margin-top: 45px;
+}
+.privacy-policy a{
+    text-decoration: underline;
+}
+.email-signup{
+    margin-top: 30px;
+    display: block;
+}
+
+h3#order_review_heading {
+    /* display: none; */
+}
+
+div#customer_details + h3 {
+    display: none;
+    visibility: hidden;
+}
+
+div#customer_details .col-1 {
+    width: 100%;
+}
+
+div#customer_details {
+    width: 48%;
+    float: left;
+}
+
+.woo-order-review {
+    width: 40%;
+    float: left;
+    margin-left: 50px;
+}
+#order_review table,#order_review table th{
+    text-align: right;
+}
+#order_review table th,#order_review table ,#order_review table tr td{
+    border:none !important;
+}
+#order_review table th:first-child,#order_review table td:first-child{
+    text-align: left;
+}
+.woocommerce-info{
+    font-size: 16px;
+    color: #6f6f6f !important;
+
+}
+.woocommerce .woocommerce-error, .woocommerce .woocommerce-info, .woocommerce .woocommerce-message{
+    padding:20px 0 !important;
+    background: #fff !important;
+    border-top:1px solid #d8d8d8 !important;
+    border-bottom: 1px solid #d8d8d8 !important;
+}
+.woocommerce .woocommerce-error:before, .woocommerce .woocommerce-info:before, .woocommerce .woocommerce-message:before{
+    content: '';
+}
+#add_payment_method #payment, .woocommerce-checkout #payment{
+    background: none !important;
+}
+.woocommerce-checkout #payment .payment_method_paypal .about_paypal{
+    display: block;
+    width:100%;
+    font-size: 12px !important;
+    color: #57b94a !important;
+}
+.woocommerce-checkout #payment div.payment_box{
+    background: none !important;
+}
+.woocommerce-checkout #payment div.payment_box:before{
+    content: '' !important;
+    position: initial;
+    border: none;
+}
+.woocommerce-checkout #payment ul.payment_methods,.woocommerce-checkout #payment div.payment_box,.woocommerce-checkout #payment div.form-row{
+    padding:0 !important;
+}
+.woocommerce #payment #place_order, .woocommerce-page #payment #place_order {
+    float: right;
+    width: 100%;
+    border-radius: 4px;
+    background-color: #57b94a;
+    padding: 20px 0;
+}
+.woocommerce{
+    padding-bottom: 50px;
+}
 /*==================================================
 =            Bootstrap 3 Media Queries             =
 ==================================================*/
@@ -1571,6 +1776,7 @@ table.cart .product-quantity, table.cart .product-thumbnail {
     }
 }
 
+/*
 @media (min-width: 768px) {
     .woocommerce {
         width: 750px;
@@ -1594,4 +1800,4 @@ table.cart .product-quantity, table.cart .product-thumbnail {
     margin-left: auto;
     padding-left: 15px;
     padding-right: 15px;
-}
+}*/

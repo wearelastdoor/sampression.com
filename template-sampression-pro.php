@@ -8,7 +8,8 @@ get_header();
 <div id="content" class="site-content">
     <main id="main" class="site-main">
         <?php while ( have_posts() ) : the_post(); ?>
-        <div class="site-description">
+        <div class="site-description min-height">
+    <div id="getFixed">
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
@@ -24,11 +25,13 @@ get_header();
                                 <a href="<?php echo get_post_meta( get_the_ID(), 'wpcf-live-demo-url', true ) ?>" target="_blank" class="button secondary-button">Live Theme Demo</a>
                                 <?php } ?>
                                 <a href="/cart/?add-to-cart=<?php echo get_post_meta( get_the_ID(), 'wpcf-woo-product-id', true ); ?>" class="button primary-button" data-hover="Learn More">Buy Now</a>
+                                <a href="#comprasion-feature-block" class="compare-link">I want to Compare Lite and Pro before Buying</a>
                             </div><!-- .button-group -->
                         </div> <!-- .main-actions -->
                     </div><!-- .col-md-5 -->
                 </div><!-- .row -->
             </div><!-- .container -->
+        </div><!--#getFixed-->
         </div><!-- .site-description -->
         <div class="theme-block clearfix">
             <div class="container">
@@ -125,7 +128,7 @@ get_header();
                 </div>
             </div><!--responsive-feature-block-->
             <div class="container theme-feature-section">
-                <div class="row text-right">
+                <div class="row text-right mrgn-top">
                     <div class="col-md-offset-1 col-md-6 feature-brief">
                         <h3>Right-To-Left (RTL) Support</h3>
                         <p>When you enable an RTL language within your WordPress Dashboard, Divi will automatically
@@ -138,7 +141,7 @@ get_header();
                 </div>
             </div><!--theme-feature-section-->
             <div class="container theme-feature-section">
-                <div class="row text-left">
+                <div class="row text-left mrgn-top">
                     <div class="col-md-5">
                         <img src="/wp-content/uploads/translated-front-back-end.png" alt="">
                     </div>
@@ -150,6 +153,52 @@ get_header();
 
                 </div>
             </div><!--theme-feature-section-->
+            <div class="comprasion-feature-block" id="comprasion-feature-block">
+                <div class="container theme-feature-section">
+                    <div class="row center">
+                        <div class="col-md-offset-2 col-md-8 feature-brief">
+                            <h3>Compare Sampression Lite with Sampression Pro</h3>
+                            <p>Here comes the Pro version of our theme Sampression Lite with many amazing features as
+                                per
+                                our user's suggestions and request. Have a look, what's new on Sampression Pro.</p>
+                        </div>
+                        <div class="col-lg-10 col-md-offset-1">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="compare-title">Features</th>
+                                    <th class="compare-lite">SAMPRESSION LITE</th>
+                                    <th class="compare-pro">SAMPRESSION PRO</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="active">
+                                    <td>Revolution Slider Compatible</td>
+                                    <td><img src="<?php echo get_template_directory_uri(); ?>/images/cancel.png" alt="cancel"></td>
+                                    <td><img src="<?php echo get_template_directory_uri(); ?>/images/ok.png" alt="cancel"></td>
+                                </tr>
+                                <tr>
+                                    <td>Font Family</td>
+                                    <td>20 Google Font</td>
+                                    <td>50+ Google Font</td>
+                                </tr>
+
+                                <tr class="active">
+                                    <td>Font size Options</td>
+                                    <td><img src="<?php echo get_template_directory_uri(); ?>/images/cancel.png" alt="cancel"></td>
+                                    <td><img src="<?php echo get_template_directory_uri(); ?>/images/ok.png" alt="cancel"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><a href="#" class="button secondary-button">Download</a></td>
+                                    <td><a href="#" class="button primary-button">BUY NOW</a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div><!--responsive-feature-block-->
         </div><!-- #features -->
 <?php
 endwhile;

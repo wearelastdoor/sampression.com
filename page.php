@@ -16,13 +16,13 @@ get_header(); ?>
 	                </div><!-- .row -->
 	            </div><!-- .container -->
 	        </div><!-- .site-description -->
-	        <div class="theme-demo">
+
 	            <div class="container">
 	                <div class="row">
 	                    <?php the_content(); ?>
 	                </div><!-- .row -->
 	            </div>
-	        </div>
+
 	    	<?php endwhile; ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
