@@ -1,5 +1,10 @@
 <?php
 
+function filter_woocommerce_order_button_html( $button ) {
+    return $button.'<div class="refund-notice"><strong>30 days money back Guarantee,</strong> If you are not satisfied with our service or product for any reason within 30 days of purchase, we provide you with your money back, no question asked. Please see our <a target="_blank" href="/terms-conditions/#refund-policy">refund policy page</a> to learn more.</div>';
+}
+add_filter( 'woocommerce_order_button_html', 'filter_woocommerce_order_button_html' );
+
 function sampression_woocommerce_created_customer( $customer_id ) {
 	if ( isset( $_POST['mailchimp_subscription'] ) && $_POST['mailchimp_subscription'] == 'yes' ) {
 		$user = get_userdata( $customer_id );
