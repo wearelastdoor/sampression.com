@@ -1,5 +1,35 @@
 <?php
 
+function sampression_woocommerce_created_customer( $customer_id ) {
+	if ( isset( $_POST['mailchimp_subscription'] ) && $_POST['mailchimp_subscription'] == 'yes' ) {
+		$user = get_userdata( $customer_id );
+		$data = array(
+		    'apikey'        => '2f84321899065d3917d5b84de2101c55-us5',
+		    'email_address' => $user->user_email,
+		    'status'        => 'subscribed'
+		);
+		$data_json = json_encode($data);
+	    $url = 'https://us5.api.mailchimp.com/3.0/lists/79ad14a968/members/';
+	    $ch = curl_init();
+	    curl_setopt($ch, CURLOPT_URL, $url);
+	    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json','Content-Length: ' . strlen($data_json)));
+	    curl_setopt($ch, CURLOPT_USERPWD, "user:2f84321899065d3917d5b84de2101c55-us5");
+	    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+	    curl_setopt($ch, CURLOPT_POSTFIELDS, $data_json);
+	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	    $response  = curl_exec($ch);
+	    curl_close($ch);
+	}
+}
+add_action( 'woocommerce_created_customer', 'sampression_woocommerce_created_customer' );
+
+function sampression_woocommerce_register_form_end() {
+	echo '<p class="form-row form-row-wide">
+		<label for="reg_subscribe"><input checked type="checkbox" name="mailchimp_subscription" value="yes" id="reg_subscribe" /> Subscribe to mailchimp</label>
+	</p>';
+}
+add_action( 'woocommerce_register_form', 'sampression_woocommerce_register_form_end'); 
+
 function sampression_woocommerce_checkout_before_order_review() {
 	echo '<div class="woo-order-review"><h3 id="order_review_heading">Your order</h3>';
 }
