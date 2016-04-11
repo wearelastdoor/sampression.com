@@ -1,4 +1,32 @@
 <?php
+// remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_login_form', 10 );
+// add_action( 'woocommerce_before_checkout_billing_form', 'woocommerce_checkout_login_form' );
+
+// remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
+// add_action( 'woocommerce_before_checkout_billing_form', 'woocommerce_checkout_coupon_form' );
+
+
+/**
+ * Change comment form default field names.
+ *
+ * @link http://codex.wordpress.org/Plugin_API/Filter_Reference/gettext
+ */
+function sampression_change_translated_text( $translated_text, $text, $domain ) {
+    if ( is_page('checkout') ) {
+        switch ( $translated_text ) {
+            case 'Billing &amp; Shipping' :
+                $translated_text = __( 'Your Information', 'sampression' );
+                break;
+            case 'Billing Details' :
+                $translated_text = __( 'Your Information', 'sampression' );
+                break;
+        }
+    }
+    return $translated_text;
+}
+add_filter( 'gettext', 'sampression_change_translated_text', 20, 3 );
+
+
 
 function filter_woocommerce_order_button_html( $button ) {
     return $button.'<div class="refund-notice"><strong>30 days money back Guarantee,</strong> If you are not satisfied with our service or product for any reason within 30 days of purchase, we provide you with your money back, no question asked. Please see our <a target="_blank" href="/terms-conditions/#refund-policy">refund policy page</a> to learn more.</div>';
@@ -45,7 +73,7 @@ function sampression_woocommerce_checkout_after_order_review() {
 }
 add_action( 'woocommerce_checkout_after_order_review', 'sampression_woocommerce_checkout_after_order_review' );
 
-remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
+//remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
 
 //add_action( 'woocommerce_after_checkout_form', 'woocommerce_checkout_coupon_form' );
 
@@ -70,7 +98,7 @@ function skyverge_show_coupon() {
 	<div class="clear"></div>
 </form><?php
 }
-add_action( 'woocommerce_review_order_before_payment', 'skyverge_show_coupon' );
+//add_action( 'woocommerce_review_order_before_payment', 'skyverge_show_coupon' );
 
 // function skyverge_show_coupon_js() {
 // 	wc_enqueue_js( '
@@ -176,7 +204,7 @@ function sampression_scripts() {
 	wp_enqueue_style( 'sampression-font', '//fonts.googleapis.com/css?family=Open+Sans:400,300,600' );
 	wp_enqueue_style( 'sampression-bootstrap-style', get_template_directory_uri() . '/css/bootstrap.css', array(), '3.3.5' );
 	//wp_enqueue_style( 'sampression-fancybox-style', get_template_directory_uri() . '/css/jquery.fancybox.css', array(), '2.1.5' );
-	wp_enqueue_style( 'sampression-transitions-style', get_template_directory_uri() . '/css/jquery.fancybox-transitions.css', array(), '0.1' );
+	//wp_enqueue_style( 'sampression-transitions-style', get_template_directory_uri() . '/css/jquery.fancybox-transitions.css', array(), '0.1' );
 	wp_enqueue_style( 'sampression-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'sampression-modernizr', get_template_directory_uri() . '/js/modernizr.custom.min.js', array(), '2.6.2', false );
@@ -184,7 +212,7 @@ function sampression_scripts() {
 	wp_enqueue_script( 'sampression-cookie-js', get_template_directory_uri() . '/js/jquery.cookie.js', array('jquery'), '1.4.1', true );
 	//wp_enqueue_script( 'sampression-fancybox-js', get_template_directory_uri() . '/js/jquery.fancybox.pack.js', array('jquery'), '2.1.5', true );
 	//wp_enqueue_script( 'sampression-easing-js', get_template_directory_uri() . '/js/jquery.easing.min.js', array('jquery'), '1.3', true );
-	wp_enqueue_script( 'sampression-transitions-js', get_template_directory_uri() . '/js/jquery.fancybox-transitions.js', array('jquery'), '0.1', true );
+	//wp_enqueue_script( 'sampression-transitions-js', get_template_directory_uri() . '/js/jquery.fancybox-transitions.js', array('jquery'), '0.1', true );
 	wp_enqueue_script( 'sampression-main-js', get_template_directory_uri() . '/js/main.js', array('jquery'), '', true );
 
 	wp_enqueue_script( 'sampression-selectivizr', get_template_directory_uri() . '/js/selectivizr.js', array(), '1.0.2', true );
@@ -300,7 +328,7 @@ function custom_paypal_button_text( $translated_text, $text, $domain ) {
 	return $translated_text;
 }
 //override checkout field by custom text and order
-add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+//add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
 
 function custom_override_checkout_fields( $fields ) {
     $fields['billing']['billing_first_name']['placeholder'] = 'First Name*';
