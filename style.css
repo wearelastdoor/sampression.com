@@ -1473,11 +1473,9 @@ a.button-social-login.button-social-login-twitter,
     display: block;
 }
 
-h3#order_review_heading {
-    /* display: none; */
-}
 
-div#customer_details + h3 {
+
+div#customer_details + h3, form.checkout.woocommerce-checkout + #customer_details {
     display: none;
     visibility: hidden;
 }
