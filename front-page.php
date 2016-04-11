@@ -10,7 +10,7 @@ get_header(); ?>
 				<div class="row">
 					<div class="col-md-12">
 						<h1>Minimal WordPress Themes</h1>
-						<h3 class="sub-description">We are a theme shop providing minimal responsive WordPress themes.</h3>
+						<h5 class="sub-description">We are a theme shop providing minimal responsive WordPress themes.</h5>
 					</div><!-- .col-md-12 -->
 				</div><!-- .row -->
 			</div><!-- .container -->
