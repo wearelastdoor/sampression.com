@@ -143,12 +143,12 @@ function custom_add_to_cart_message( $message, $product_id ) {
 }
 add_filter( 'wc_add_to_cart_message', 'custom_add_to_cart_message', 10, 2 );
 
-function redirect_to_checkout() {
+/* function redirect_to_checkout() {
     global $woocommerce;
     $checkout_url = $woocommerce->cart->get_checkout_url();
     return $checkout_url;
 }
-add_filter ('woocommerce_add_to_cart_redirect', 'redirect_to_checkout');
+add_filter ('woocommerce_add_to_cart_redirect', 'redirect_to_checkout'); */
 
 function sampression_split_more_content() {
     global $post;
