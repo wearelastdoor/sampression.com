@@ -135,17 +135,19 @@ jQuery(document).ready(function ($) {
                 'position': 'fixed',
                 'top': '0px',
                 'z-index': 2,
-                'padding': '20px 0'
+                'padding': '20px 0',
+                'box-shadow': '0px 11px 30px -20px rgba(0, 0, 0, 0.20)'
             });
             $('.min-height').css({
-                'height': '175px'
+                'height': '140px'
             })
 
         }
         else {
             $cache.css({
                 'position': 'relative',
-                'top': 'auto'
+                'top': 'auto',
+                'box-shadow': 'none'
             });
             $('.min-height').css({
                 'height': 'auto'

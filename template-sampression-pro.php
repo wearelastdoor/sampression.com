@@ -24,7 +24,7 @@ get_header();
                                 <?php if( get_post_meta( get_the_ID(), 'wpcf-live-demo-url', true ) ) { ?>
                                 <a href="<?php echo get_post_meta( get_the_ID(), 'wpcf-live-demo-url', true ) ?>" target="_blank" class="button secondary-button">Live Theme Demo</a>
                                 <?php } ?>
-                                <a href="/cart/?add-to-cart=<?php echo get_post_meta( get_the_ID(), 'wpcf-woo-product-id', true ); ?>" class="button primary-button" data-hover="Learn More">Buy Now</a>
+                                <a href="/cart/?add-to-cart=<?php echo get_post_meta( get_the_ID(), 'wpcf-woo-product-id', true ); ?>" class="text-uppercase button primary-button" data-hover="Learn More">Buy Now</a>
                                 <a href="#comprasion-feature-block" class="compare-link">I want to Compare Lite and Pro before Buying</a>
                             </div><!-- .button-group -->
                         </div> <!-- .main-actions -->

@@ -230,7 +230,7 @@ add_filter('wp_nav_menu_items','sampression_primary_signup', 10, 2);
 function sampression_primary_signup( $nav, $args ) {
     if( $args->theme_location == 'primary' ) {
     	if( is_user_logged_in() ) {
-    		return $nav . "<li class='nav-button menu-item menu-item-type-custom'><a href='/my-account/customer-logout/'>Sign Out</a></li>";
+    		return $nav . "<li class='menu-item menu-item-type-custom'><a href='/my-account/customer-logout/'>Sign Out</a></li><li class='nav-button menu-item menu-item-type-custom'><a href='/my-account'>My Account</a></li>";
     	} else {
         	return $nav . "<li class='nav-button menu-item menu-item-type-custom'><a href='javascript:void(0)'  class='open-overlay' >Sign In / Sign Up</a></li>";
         }
@@ -358,3 +358,10 @@ function custom_override_checkout_fields( $fields ) {
 //remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
 
 //add_action( 'woocommerce_after_checkout_form', 'woocommerce_checkout_coupon_form');
+
+
+add_filter( 'gform_ajax_spinner_url', 'spinner_url', 10, 2 );
+function spinner_url( $image_src, $form ) {
+	$url = get_template_directory_uri ();
+    return $url. '/images/ajax-loader.gif';
+}

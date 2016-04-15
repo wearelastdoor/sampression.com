@@ -33,7 +33,7 @@ get_header(); ?>
                         if( has_post_thumbnail($child->ID) ) {
                             $image = wp_get_attachment_image_src( get_post_thumbnail_id($child->ID), 'full' );
                         ?>
-                        <figure class="col-md-8">
+                        <figure class="col-md-7 theme-screenshot">
                             <img src="<?php echo $image[0] ?>" alt="<?php echo get_post_meta( get_post_thumbnail_id($child->ID), '_wp_attachment_image_alt', true ); ?>">
                         </figure>
                         <?php
@@ -62,13 +62,7 @@ get_header(); ?>
             <div class="extend-membership">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6 text-left">
-                            <?php the_content() ?>
-                            <div class="button-group">
-                                <a href="#" class="button primary-button">SUBSCRIBE TO EXTENDED MEMBERSHIP</a>
-                            </div><!-- .button-group -->
-                        </div><!-- .theme-details -->
-                        <?php
+                     <?php
                         if( has_post_thumbnail() ) {
                             $image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
                         ?>
@@ -78,6 +72,13 @@ get_header(); ?>
                         <?php
                         }
                         ?>
+                        <div class="col-md-6 text-left">
+                            <?php the_content() ?>
+                            <div class="button-group">
+                                <a href="#" class="button primary-button">SUBSCRIBE TO EXTENDED MEMBERSHIP</a>
+                            </div><!-- .button-group -->
+                        </div><!-- .theme-details -->
+                        
                     </div><!-- .row -->
                 </div>
             </div>
