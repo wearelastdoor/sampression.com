@@ -253,7 +253,7 @@ function sampression_widgets_init() {
 		'name'          => esc_html__( 'Feature Area', 'sampression' ),
 		'id'            => 'feature-area',
 		'description'   => 'Home page features area.',
-		'before_widget' => '<div id="%1$s" class="widget %2$s col-md-3">',
+		'before_widget' => '<div id="%1$s" class="widget %2$s col-sm-6 col-md-3">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<div class="widget-title">',
 		'after_title'   => '</div>',

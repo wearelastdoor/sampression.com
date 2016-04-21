@@ -130,6 +130,7 @@ jQuery(document).ready(function ($) {
     * ========================================================*/
     function fixDiv() {
         var $cache = $('#getFixed');
+        var height = $('#getFixed').outerHeight();
         if ($(window).scrollTop() > 250) {
             $cache.css({
                 'position': 'fixed',
@@ -139,7 +140,7 @@ jQuery(document).ready(function ($) {
                 'box-shadow': '0px 11px 30px -20px rgba(0, 0, 0, 0.20)'
             });
             $('.min-height').css({
-                'height': '140px'
+                'height': height + 'px'
             })
 
         }

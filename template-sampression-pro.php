@@ -127,25 +127,26 @@ get_header();
                     </div>
                 </div>
             </div><!--responsive-feature-block-->
-            <div class="container theme-feature-section">
+            <div class="container theme-feature-section odd">
                 <div class="row text-right mrgn-top">
-                    <div class="col-md-offset-1 col-md-6 feature-brief">
+                    <div class="col-sm-6 col-md-5 image-wrap">
+                        <img src="/wp-content/uploads/translated-r-t-l.png" alt="">
+                    </div>
+                    <div class="col-sm-6 col-md-offset-1 col-md-6 feature-brief">
                         <h3>Right-To-Left (RTL) Support</h3>
                         <p>When you enable an RTL language within your WordPress Dashboard, Divi will automatically
                             switch to RTL mode. Not only is the front-end website adjusted, but even the Divi builder
                             interface has been fully customized for RTL users.</p>
                     </div>
-                    <div class="col-md-5">
-                        <img src="/wp-content/uploads/translated-r-t-l.png" alt="">
-                    </div>
+                    
                 </div>
             </div><!--theme-feature-section-->
-            <div class="container theme-feature-section">
+            <div class="container theme-feature-section even last">
                 <div class="row text-left mrgn-top">
-                    <div class="col-md-5">
+                    <div class="col-sm-6 col-md-5 image-wrap">
                         <img src="/wp-content/uploads/translated-front-back-end.png" alt="">
                     </div>
-                    <div class="col-md-6 feature-brief">
+                    <div class="col-sm-6 col-md-6 feature-brief">
                         <h3>Fully Translated Inside &amp; Out</h3>
                         <p>Not only are front-end elements translated, but we also expanded the theme’s localization to
                             cover the Divi builder interface, including all form fields and descriptions.</p>
@@ -156,49 +157,51 @@ get_header();
             <div class="comprasion-feature-block" id="comprasion-feature-block">
                 <div class="container theme-feature-section">
                     <div class="row center">
-                        <div class="col-md-offset-2 col-md-8 feature-brief">
-                            <h3>Compare Sampression Lite with Sampression Pro</h3>
+                        <div class="col-md-offset-2 col-md-8 comprasion-details">
+                            <h2>Compare Sampression Lite with Sampression Pro</h2>
                             <p>Here comes the Pro version of our theme Sampression Lite with many amazing features as
                                 per
                                 our user's suggestions and request. Have a look, what's new on Sampression Pro.</p>
                         </div>
                         <div class="col-lg-10 col-md-offset-1">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="compare-title">Features</th>
-                                    <th class="compare-lite">SAMPRESSION LITE</th>
-                                    <th class="compare-pro">SAMPRESSION PRO</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr class="active">
-                                    <td>Revolution Slider Compatible</td>
-                                    <td><img src="<?php echo get_template_directory_uri(); ?>/images/cancel.png" alt="cancel"></td>
-                                    <td><img src="<?php echo get_template_directory_uri(); ?>/images/ok.png" alt="cancel"></td>
-                                </tr>
-                                <tr>
-                                    <td>Font Family</td>
-                                    <td>20 Google Font</td>
-                                    <td>50+ Google Font</td>
-                                </tr>
+                            <div class="table-responsive">
+                                <table class="table comparsion-table">
+                                    <thead>
+                                    <tr>
+                                        <th class="compare-title">Features</th>
+                                        <th class="compare-lite">SAMPRESSION LITE</th>
+                                        <th class="compare-pro">SAMPRESSION PRO</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="active">
+                                        <td>Revolution Slider Compatible</td>
+                                        <td><img src="<?php echo get_template_directory_uri(); ?>/images/cancel.png" alt="cancel"></td>
+                                        <td><img src="<?php echo get_template_directory_uri(); ?>/images/ok.png" alt="cancel"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Font Family</td>
+                                        <td>20 Google Font</td>
+                                        <td>50+ Google Font</td>
+                                    </tr>
 
-                                <tr class="active">
-                                    <td>Font size Options</td>
-                                    <td><img src="<?php echo get_template_directory_uri(); ?>/images/cancel.png" alt="cancel"></td>
-                                    <td><img src="<?php echo get_template_directory_uri(); ?>/images/ok.png" alt="cancel"></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td><a href="#" class="button secondary-button">Download</a></td>
-                                    <td><a href="#" class="button primary-button">BUY NOW</a></td>
-                                </tr>
-                                </tbody>
-                            </table>
+                                    <tr class="active">
+                                        <td>Font size Options</td>
+                                        <td><img src="<?php echo get_template_directory_uri(); ?>/images/cancel.png" alt="cancel"></td>
+                                        <td><img src="<?php echo get_template_directory_uri(); ?>/images/ok.png" alt="cancel"></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><a href="#" class="button text-uppercase secondary-button">Download</a></td>
+                                        <td><a href="#" class="button primary-button">BUY NOW</a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div><!-- .table-responsive -->
                         </div>
-                    </div>
-                </div>
-            </div><!--responsive-feature-block-->
+                    </div><!-- .row -->
+                </div><!-- .theme-feature-section -->
+            </div><!--comprasion-feature-block-->
         </div><!-- #features -->
 <?php
 endwhile;
