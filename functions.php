@@ -118,7 +118,7 @@ function skyverge_show_coupon() {
 /**
  * Display status of the Toolbar to off
  */
-add_filter( 'show_admin_bar', '__return_false' );
+//add_filter( 'show_admin_bar', '__return_false' );
 
 /**
  * Removing additional notes field in checkout page
