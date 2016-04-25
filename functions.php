@@ -229,11 +229,11 @@ add_action( 'wp_enqueue_scripts', 'sampression_scripts' );
 add_filter('wp_nav_menu_items','sampression_primary_signup', 10, 2);
 function sampression_primary_signup( $nav, $args ) {
     if( $args->theme_location == 'primary' ) {
-    	if( is_user_logged_in() ) {
+    	//if( is_user_logged_in() ) {
     		return $nav . "<li class='menu-item menu-item-type-custom'><a href='/my-account/customer-logout/'>Sign Out</a></li><li class='nav-button menu-item menu-item-type-custom'><a href='/my-account'>My Account</a></li>";
-    	} else {
-        	return $nav . "<li class='nav-button menu-item menu-item-type-custom'><a href='javascript:void(0)'  class='open-overlay' >Sign In / Sign Up</a></li>";
-        }
+    	// } else {
+     //    	return $nav . "<li class='nav-button menu-item menu-item-type-custom'><a href='javascript:void(0)'  class='open-overlay' >Sign In / Sign Up</a></li>";
+     //    }
     }
     return $nav;
 }
@@ -365,3 +365,13 @@ function spinner_url( $image_src, $form ) {
 	$url = get_template_directory_uri ();
     return $url. '/images/ajax-loader.gif';
 }
+
+
+// Move "My Social Login" to "Start of login form" instead of "End of login form"
+function wc_social_login_move_social_profiles() {
+	if ( function_exists( 'wc_social_login' ) ) {
+		remove_action( 'woocommerce_login_form_end',  array( wc_social_login()->frontend, 'render_social_login_buttons' ) );
+		add_action( 'woocommerce_login_form_start', array( wc_social_login()->frontend, 'render_social_login_buttons' ) );
+	}
+}
+add_action( 'init', 'wc_social_login_move_social_profiles', 11 );
